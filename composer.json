@@ -1,0 +1,17 @@
+{
+    "name": "root/test-grouping",
+    "description": "Custom php Router",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "asma-ab",
+            "email": "abichouasmaa@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
