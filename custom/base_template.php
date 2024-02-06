@@ -41,7 +41,7 @@
 
 <body class="g-sidenav-show  bg-gray-200">
     <?php
-    include_once "../body/side_bar.php"
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/body/side_bar.php"
     ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->

@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+
+use App\Database;
+
 class RegistrationController
 {
     public function showRegistrationPage($params)
@@ -12,10 +15,14 @@ class RegistrationController
 
     public function processRegistration($params)
     {
+        $db = Database::getDbConnection();
+        var_dump($db);
+        die();
         /*var_dump($params);*/
 /*        echo "i am process registration";*/
 
-        header("Location: /dashboard");
-        die();
+        /*header("Location: /dashboard");
+        die();*/
     }
+
 }
