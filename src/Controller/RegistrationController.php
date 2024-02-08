@@ -62,6 +62,7 @@ class RegistrationController
             $query = "INSERT INTO users (email, password, role, full_name) VALUES (:email, :password, :role, :fullName)";
             $stmt = $db->prepare($query);
             $stmt->execute(['email' => $email, 'password' => $hashedPassword, 'role' => $role, 'fullName' => $fullName]);
+            $_SESSION["registration_success_message"] = "Registration successful! You can now log in.";
             // $registeredUserId = $db->lastInsertId();
             // Redirect to the dashboard
             header("Location: /login");

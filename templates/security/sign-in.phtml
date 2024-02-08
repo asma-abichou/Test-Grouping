@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +23,41 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <style>
+        #success-message {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text color */
+            padding: 15px; /* Some padding */
+            position: fixed; /* Fixed position */
+            bottom: 0; /* At the bottom */
+            left: 0;
+            width: 100%; /* Full width */
+            text-align: center; /* Centered text */
+            animation: slideIn 0.5s ease-out; /* Animation */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            opacity: 0.9; /* Slightly transparent */
+        }
+
+        #success-message:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #success-message::before {
+            content: "\2713"; /* Unicode checkmark symbol */
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-200">
@@ -49,6 +83,23 @@
                 </div>
               </div>
               <div class="card-body">
+                  <?php
+                  //login fail massage login
+                  if (isset($_SESSION['login_fail_message'])) {
+                      $flashMessage = $_SESSION['login_fail_message'];
+                      unset($_SESSION['login_fail_message']);
+                  }
+                  //registration success massage
+                  if (isset($_SESSION["registration_success_message"])) {
+                      $successMessage = $_SESSION["registration_success_message"];
+                      unset($_SESSION["registration_success_message"]);
+                      echo "<div id='success-message'>$successMessage</div>";
+                  }
+                  if (!empty($flashMessage)) : ?>
+                  <div class="alert alert-danger" role="alert">
+                      <?php echo $flashMessage; ?>
+                  </div>
+                  <?php endif; ?>
                 <form action="/login" method="post">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
@@ -71,39 +122,6 @@
           </div>
         </div>
       </div>
-      <footer class="footer position-absolute bottom-2 py-2 w-100">
-        <div class="container">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-12 col-md-6 my-auto">
-              <div class="copyright text-center text-sm text-white text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
   </main>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>

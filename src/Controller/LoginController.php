@@ -24,7 +24,16 @@ class LoginController
         $query->execute(['email' => $email, 'admin_role' => 'ROLE_ADMIN', 'user_role' => 'ROLE_USER']);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
+        public function validationInputFields($params){
+            $email = $params['email'];
+            $password = $params['password'];
+            if (empty($email) || empty($password)) {
+                $_SESSION["login_fail_message"] = "Email and password are required!";
+                header('location: login.php');
+                die();
+            }
 
+        }
     public function processLogin($params){
         $email = $params['email'];
         $password = $params['password'];
@@ -33,6 +42,7 @@ class LoginController
 
         if ($user && password_verify($password, $user['password'])) {
             // Valid login credentials
+            $this->validationInputFields($params);
 
             if ($user['role'] === 'ROLE_ADMIN') {
                 // Redirect admin to dashboard
@@ -40,13 +50,16 @@ class LoginController
                 header("Location: /dashboard");
                 exit();
             } else {
-                // Redirect non-admin (other roles) to login page
+                // Display a specific error message for users with other roles
+                $_SESSION["login_fail_message"] = "Invalid credentials for user role.";
                 header("Location: /login");
                 exit();
             }
         } else {
             // Invalid login credentials
-            echo 'Invalid login credentials. Please try again.';
+            $_SESSION["login_fail_message"] = "Incorrect email or password. Please try again.";
+            header("Location: /login");
+            exit();
         }
     }
 
