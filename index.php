@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
 
+use App\Controller\ProfileController;
+use App\Controller\TableController;
 use App\Router;
 use App\Controller\LoginController;
 use App\Controller\RegistrationController;
@@ -20,8 +22,17 @@ $router->post('/register', RegistrationController::class . '::processRegistratio
 
 // Logout Route
 $router->get('/logout', LoginController::class . '::logout');
+
 // Dashboard Route
 $router->get('/dashboard', DashboardController::class . '::showDashboard');
+
+// Table Members Route
+$router->get('/table', TableController::class . '::showTable');
+
+//profile Route
+$router->get('/profile', ProfileController::class . '::showProfile');
+
+
 
 $router->addNotFoundHandler(function () {
     echo "This page does not exist! Please contact Abla Lahdhoubi";
