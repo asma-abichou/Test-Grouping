@@ -2,7 +2,7 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 use App\Controller\ProfileController;
-use App\Controller\TableController;
+use App\Controller\MemberController;
 use App\Router;
 use App\Controller\LoginController;
 use App\Controller\RegistrationController;
@@ -27,12 +27,10 @@ $router->get('/logout', LoginController::class . '::logout');
 $router->get('/dashboard', DashboardController::class . '::showDashboard');
 
 // Table Members Route
-$router->get('/table', TableController::class . '::showTable');
+$router->get('/table', MemberController::class . '::showTable');
 
 //profile Route
 $router->get('/profile', ProfileController::class . '::getProfileData');
-
-
 
 
 $router->addNotFoundHandler(function () {

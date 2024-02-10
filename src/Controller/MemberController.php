@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Database;
 use PDO;
 
-class TableController
+class MemberController
 {
     public function checkIfAuthenticated()
     {
