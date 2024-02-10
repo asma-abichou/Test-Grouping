@@ -1,0 +1,109 @@
+<?php
+/**
+ * @var string $member;
+ */
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <title>
+        My Profile
+    </title>
+</head>
+<body  class="g-sidenav-show bg-gray-200">
+<?php
+include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/sidebar.phtml";
+?>
+<div class="main-content text-capitalize">
+    <!-- Navbar -->
+    <?php
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/nav_bar.phtml";
+    ?>
+    <!-- End Navbar -->
+    <h2>Edit Member</h2>
+    <form action="/table/editMember" method="post">
+            <input type="hidden" name="idMember" value="<?= $member['id']; ?>">
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="type">Type:</label>
+                    <input type="text" class="form-control" name="type" value="<?= $member['type']; ?>" required>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label for="actif">Actif:</label>
+                    <input type="text" class="form-control" name="actif" value="<?= $member['actif']; ?>" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="nom">Nom:</label>
+                    <input type="text" class="form-control" name="nom" value="<?= $member['nom']; ?>" required>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label for="prenom">Prenom:</label>
+                    <input type="text" class="form-control" name="prenom" value="<?= $member['prenom']; ?>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="code_postal">Code Postal:</label>
+                    <input type="text" class="form-control" name="code_postal" value="<?= $member['code_postal']; ?>" required>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label for="fonction">Fonction:</label>
+                    <input type="text" class="form-control" name="fonction" value="<?= $member['fonction']; ?>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="biographie">Biographie:</label>
+                    <textarea class="form-control" name="biographie" required><?= $member['biographie']; ?></textarea>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" value="<?= $member['email']; ?>" required>
+                 </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="pays">Pays:</label>
+                    <input type="text" class="form-control" name="pays" value="<?= $member['pays']; ?>" required>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="piece_justificative">Piece Justificative:</label>
+                    <input type="file" class="form-control" name="piece_justificative" value="<?= $member['piece_justificative']; ?>" required>
+                </div>
+            </div>
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" class="form-control" name="adresse" value="<?= $member['adresse']; ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Member</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -84,20 +84,38 @@
                     <div class="card-body p-3">
                         <form role="form">
                             <div class="input-group input-group-outline mb-3">
-
                                 <label class="col-form-label">Name</label>&nbsp;
                                 <input type="text" class="form-control" value="<?php echo $fullName;?>" readonly>
                             </div>
                             <div class="input-group input-group-outline mb-3">
-                                <label class="form-label">Email</label>
+                                <label class="col-form-label">Email</label>&nbsp;
                                 <input type="email" class="form-control" value="<?php echo $email; ?>" readonly>
                             </div>
                         </form>
                     </div>
                   </div>
                 </div>
-      <div class="col-12 mt-4">
-    </div>
+
+                <div class="col-12 col-xl-4">
+                <div class="card-body pb-0 ">
+              <div class="col-md-8 d-flex align-items-center">
+                  <h6 class="mb-0">Change Password</h6>
+              </div>
+              <div class="card-body p-3">
+              <form role="form">
+                  <div class="input-group input-group-outline mb-3">
+                      <label class="col-form-label">Current Password</label>&nbsp;
+                      <input type="password" class="form-control" value="<?php echo $password; ?>" readonly>
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                      <label class="col-form-label">New Password</label>&nbsp;
+                      <input type="password" class="form-control" value="<?php echo $password; ?>" >
+                  </div>
+              </form>
+              </div>
+                </div>
+                </div>
+
       <?php
       include_once include_once $_SERVER["DOCUMENT_ROOT"] ."/templates/layout/footer.phtml"
       ?>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
 
-use App\Controller\ProfileController;
+use App\Controller\UserController;
 use App\Controller\MemberController;
 use App\Router;
 use App\Controller\LoginController;
@@ -28,9 +28,11 @@ $router->get('/dashboard', DashboardController::class . '::showDashboard');
 
 // Table Members Route
 $router->get('/table', MemberController::class . '::showTable');
+$router->get('/table/editMember', MemberController::class . '::showMember');
+$router->post('/table/editMember', MemberController::class . '::editMember');
 
 //profile Route
-$router->get('/profile', ProfileController::class . '::getProfileData');
+$router->get('/profile', UserController::class . '::getProfileData');
 
 
 $router->addNotFoundHandler(function () {
