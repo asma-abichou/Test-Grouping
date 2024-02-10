@@ -30,7 +30,8 @@ $router->get('/dashboard', DashboardController::class . '::showDashboard');
 $router->get('/table', TableController::class . '::showTable');
 
 //profile Route
-$router->get('/profile', ProfileController::class . '::showProfile');
+$router->get('/profile', ProfileController::class . '::getProfileData');
+
 
 
 
