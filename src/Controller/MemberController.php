@@ -88,9 +88,8 @@ class MemberController
                 $stmt = $db->prepare("UPDATE membre SET actif = :actif WHERE id = :idMember");
                 $stmt->execute([':actif' => $actifValue, ':idMember' => $idMember]);
                 // Include the template for editing the member
-                include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/tables.phtml";
-                header("location  /templates/tables.phtml");
-
+               // include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/tables.phtml";
+                header("Location: /dashboard/members");
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }

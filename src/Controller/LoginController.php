@@ -47,7 +47,7 @@ class LoginController
             if ($user['role'] === 'ROLE_ADMIN') {
                 // Redirect admin to dashboard
                 $_SESSION['user'] = $user;
-                header("Location: /dashboard");
+                header("Location: /dashboard/members");
                 exit();
             } else {
                 // Display a specific error message for users with other roles
