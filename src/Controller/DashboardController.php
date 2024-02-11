@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class DashboardController
 {
-    public function checkIfAuthenticated()
+   public function checkIfAuthenticated()
     {
         if(!isset($_SESSION['user'])){
             header("Location: /login");
@@ -19,7 +19,7 @@ class DashboardController
         die();*/
 
         /*include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/dashboard.html";*/
-        include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/base_template.phtml";
+        include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/tables.phtml";
 
     }
     public function showSideBar()

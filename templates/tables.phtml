@@ -84,7 +84,7 @@
                             <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10"><?= $member['pays']; ?></td>
                             <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10"><?= $member['email']; ?></td>
                             <td>
-                                <form action="/table/editMember" method="post" style="display: inline;">
+                                <form action="/table/getEditMember"  style="display: inline;">
                                     <input type="hidden" name="id" value="<?= $member['id']; ?>">
                                     <button type="submit" class="btn btn-link" style="padding: 0;">
                                         <i class="fas fa-edit" style="color: #d63384;" ></i>

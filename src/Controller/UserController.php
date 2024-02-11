@@ -18,7 +18,6 @@ class UserController
         //show profile
         $this->checkIfAuthenticated();
 
-
         $db = Database::getDbConnection();
         $user = $_SESSION['user'];
         $idUser = $user['id'];

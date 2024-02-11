@@ -24,12 +24,15 @@ $router->post('/register', RegistrationController::class . '::processRegistratio
 $router->get('/logout', LoginController::class . '::logout');
 
 // Dashboard Route
-$router->get('/dashboard', DashboardController::class . '::showDashboard');
+//$router->get('/dashboard', DashboardController::class . '::showDashboard');
+$router->get('/dashboard/members', MemberController::class . '::showTable');
 
 // Table Members Route
 $router->get('/table', MemberController::class . '::showTable');
 $router->get('/table/editMember', MemberController::class . '::showMember');
-$router->post('/table/editMember', MemberController::class . '::editMember');
+//edit table member
+$router->get('/table/getEditMember', MemberController::class . '::editMember');
+$router->post('/table', MemberController::class . '::validateMember');
 
 //profile Route
 $router->get('/profile', UserController::class . '::getProfileData');

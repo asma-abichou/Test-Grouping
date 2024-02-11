@@ -1,7 +1,19 @@
 <?php
 /**
- * @var string $member;
+ * @var string $actif;
+ * @var string $idMember;
+ * @var int $type;
+ * @var string $codePostal;
+ * @var string $nom;
+ * @var string $prenom;
+ * @var string $fonction;
+ * @var string $biographie;
+ * @var string $email;
+ * @var string $pays;
+ * @var string $adresse;
+ * @var string $piece_justificative;
  */
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,88 +29,85 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-    <!-- Nepcha Analytics (nepcha.com) -->
-    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
     <title>
-        My Profile
+        Edit Member
     </title>
 </head>
 <body  class="g-sidenav-show bg-gray-200">
-<?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/sidebar.phtml";
-?>
-<div class="main-content text-capitalize">
-    <!-- Navbar -->
     <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/nav_bar.phtml";
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/sidebar.phtml";
     ?>
-    <!-- End Navbar -->
-    <h2>Edit Member</h2>
-    <form action="/table/editMember" method="post">
-            <input type="hidden" name="idMember" value="<?= $member['id']; ?>">
+    <div class="main-content text-capitalize">
+        <!-- Navbar -->
+        <?php
+        include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/layout/nav_bar.phtml";
+        ?>
+        <!-- End Navbar -->
+        <h2>Edit Member</h2>
+        <form action="/table" method="post">
+           <input type="hidden" name="id" value="<?= $idMember; ?>">
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="type">Type:</label>
-                    <input type="text" class="form-control" name="type" value="<?= $member['type']; ?>" required>
+                    <input type="text" class="form-control" name="type" value="<?= $type; ?>" >
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="actif">Actif:</label>
-                    <input type="text" class="form-control" name="actif" value="<?= $member['actif']; ?>" required>
+                    <input type="text" class="form-control" name="actif" value="<?= $actif; ?>" >
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" name="nom" value="<?= $member['nom']; ?>" required>
+                    <input type="text" class="form-control" name="nom" value="<?= $nom; ?>" >
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="prenom">Prenom:</label>
-                    <input type="text" class="form-control" name="prenom" value="<?= $member['prenom']; ?>" required>
+                    <input type="text" class="form-control" name="prenom" value="<?= $prenom; ?>" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="code_postal">Code Postal:</label>
-                    <input type="text" class="form-control" name="code_postal" value="<?= $member['code_postal']; ?>" required>
+                    <input type="text" class="form-control" name="code_postal" value="<?= $codePostal; ?>">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="fonction">Fonction:</label>
-                    <input type="text" class="form-control" name="fonction" value="<?= $member['fonction']; ?>" required>
+                    <input type="text" class="form-control" name="fonction" value="<?= $fonction; ?>" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="biographie">Biographie:</label>
-                    <textarea class="form-control" name="biographie" required><?= $member['biographie']; ?></textarea>
+                    <textarea class="form-control" name="biographie" ><?= $biographie; ?></textarea>
                 </div>
                 <div class="form-group col-md-5">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" value="<?= $member['email']; ?>" required>
+                    <input type="email" class="form-control" name="email" value="<?= $email; ?>" >
                  </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="pays">Pays:</label>
-                    <input type="text" class="form-control" name="pays" value="<?= $member['pays']; ?>" required>
+                    <input type="text" class="form-control" name="pays" value="<?= $pays; ?>" >
                 </div>
                 <div class="form-group col-md-5">
                     <label for="piece_justificative">Piece Justificative:</label>
-                    <input type="file" class="form-control" name="piece_justificative" value="<?= $member['piece_justificative']; ?>" required>
+                    <input type="file" class="form-control" name="piece_justificative" value="<?= $piece_justificative; ?>" >
                 </div>
             </div>
-        <div class="form-group">
-            <label for="adresse">Adresse:</label>
-            <input type="text" class="form-control" name="adresse" value="<?= $member['adresse']; ?>" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update Member</button>
-    </form>
+            <div class="form-group">
+                <label for="adresse">Adresse:</label>
+                <input type="text" class="form-control" name="adresse" value="<?= $adresse; ?>" >
+            </div>
+            <button type="submit" name="validateMemberBtn" class="btn btn-primary">Validate Member</button>
+        </form>
 </div>
 
 <!-- Bootstrap JS and Popper.js -->
