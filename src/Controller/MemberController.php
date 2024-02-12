@@ -80,14 +80,12 @@ class MemberController
         if (isset($_POST['validateMemberBtn'])) {
             // Extract form data
             $idMember = $params['id'];
-            $formValidated = false;
             try {
                 // Check if the form is validated
                 $actifValue = isset($_POST['actif']) ? 1 : 0;
                 // Update the "actif" field in the database
                 $stmt = $db->prepare("UPDATE membre SET actif = :actif WHERE id = :idMember");
                 $stmt->execute([':actif' => $actifValue, ':idMember' => $idMember]);
-                // Include the template for editing the member
                // include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/tables.phtml";
                 header("Location: /dashboard/members");
             } catch (PDOException $e) {
