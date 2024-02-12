@@ -9,6 +9,41 @@
     <link href="../../public/css/styles.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="../../public/assets/img/favicon.png" />
     <title>Login - Test-Grouping</title>
+    <style>
+        #success-message {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text color */
+            padding: 15px; /* Some padding */
+            position: fixed; /* Fixed position */
+            bottom: 0; /* At the bottom */
+            left: 0;
+            width: 100%; /* Full width */
+            text-align: center; /* Centered text */
+            animation: slideIn 0.5s ease-out; /* Animation */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            opacity: 0.9; /* Slightly transparent */
+        }
+
+        #success-message:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #success-message::before {
+            content: "\2713"; /* Unicode checkmark symbol */
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body class="bg-primary">
 <div id="layoutAuthentication">

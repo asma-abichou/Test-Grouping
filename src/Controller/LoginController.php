@@ -24,22 +24,20 @@ class LoginController
         $query->execute(['email' => $email, 'admin_role' => 'ROLE_ADMIN', 'user_role' => 'ROLE_USER']);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
-        public function validationInputFields($params){
-            $email = $params['email'];
-            $password = $params['password'];
-            if (empty($email) || empty($password)) {
-                $_SESSION["login_fail_message"] = "Email and password are required!";
-                header('location: login.php');
-                die();
-            }
-
+    public function validationInputFields($params){
+        $email = $params['email'];
+        $password = $params['password'];
+        if (empty($email) || empty($password)) {
+            $_SESSION["login_fail_message"] = "Email and password are required!";
+            header('location: login.php');
+            die();
         }
+
+    }
     public function processLogin($params){
         $email = $params['email'];
         $password = $params['password'];
         $user = $this->getUserByEmail($email);
-        var_dump($user);
-
         if ($user && password_verify($password, $user['password'])) {
             // Valid login credentials
             $this->validationInputFields($params);
@@ -50,7 +48,6 @@ class LoginController
                 header("Location: /dashboard/members/list");
                 exit();
             } else {
-                // Display a specific error message for users with other roles
                 $_SESSION["login_fail_message"] = "Invalid credentials for user role.";
                 header("Location: /login");
                 exit();

@@ -36,6 +36,6 @@ $router->get('/dashboard/my-profile', UserController::class . '::myProfile');
 
 
 $router->addNotFoundHandler(function () {
-    echo "This page does not exist! Please contact Abla Lahdhoubi";
+    echo "This page does not exist! Please try again";
 });
 $router->run();

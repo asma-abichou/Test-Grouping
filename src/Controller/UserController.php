@@ -29,7 +29,7 @@ class UserController
             $email = $user['email'];
             $pictureProfile = $user['picture_profile'];
 
-            include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/dashboard/my-profile.phtml";
+            include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/user/my-profile.phtml";
 
         }
     }
