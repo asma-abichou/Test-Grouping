@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/header.phtml';?>
+    <title>Members List</title>
+</head>
+<body class="nav-fixed">
+<?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/navbar.phtml';?>
+<div id="layoutSidenav">
+    <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/sidebar.phtml';?>
+    <div id="layoutSidenav_content">
+        <main>
+            <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
+                <div class="container-fluid px-4">
+                    <div class="page-header-content">
+                        <div class="row align-items-center justify-content-between pt-3">
+                            <div class="col-auto mb-3">
+                                <h1 class="page-header-title">
+                                    <div class="page-header-icon"><i data-feather="list"></i></div>
+                                    Members List
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Main page content-->
+            <div class="container-fluid px-4">
+                <div class="card">
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                            <tr>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Adresse</th>
+                                <th>Code Postal</th>
+                                <th>Pays</th>
+                                <th>Fonction</th>
+                                <th>Type</th>
+                                <th>Actif</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Adresse</th>
+                                <th>Code Postal</th>
+                                <th>Pays</th>
+                                <th>Fonction</th>
+                                <th>Type</th>
+                                <th>Actif</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <?php
+                            foreach ($members as $member)
+                            {
+                                $memberId = $member['id'];
+                                $prenom = $member['prenom'];
+                                $nom = $member['nom'];
+                                $email = $member['email'];
+                                $adresse = $member['adresse'];
+                                $codePostal = $member['code_postal'];
+                                $pays = $member['pays'];
+                                $fonction = $member['fonction'];
+                                $type = $member['type'];
+                                $actif = $member['actif'];
+                                echo "
+                                <tr>
+                                    <td>$prenom</td>                              
+                                    <td>$nom</td>                              
+                                    <td>$email</td>
+                                    <td>$adresse</td>
+                                    <td>$codePostal</td>                                                                                                                                
+                                    <td>$pays</td>                                                                                                                                
+                                    <td>$fonction</td>                                                                                                                                
+                                    <td>$type</td>                                                                                                                                
+                                    <td>$actif</td>                                                                                                          
+                                    <td class='text-center'>
+                                        <a class='btn btn-datatable btn-icon btn-transparent-dark me-2' href='edit?id=$memberId'><i data-feather='edit'></i></a>                                                                                     
+                                    </td>                                                                                                                          
+                                </tr>
+                                ";
+                            };
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/footer.phtml';?>
+    </div>
+</div>
+<?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/scripts.phtml';?>
+</body>
+</html>

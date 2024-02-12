@@ -12,7 +12,7 @@ class RegistrationController
     public function showRegistrationPage($params)
     {
         /*var_dump($params);*/
-         include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/security/sign-up.phtml";
+         include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/security/registration.phtml";
     }
     function validateUserInput($params)
     {
@@ -70,7 +70,7 @@ class RegistrationController
         }catch(Exception $e) {
             // Handle the exception (display error messages, log, etc.)
             $errorMessages = $e->getMessage();
-            include $_SERVER["DOCUMENT_ROOT"] . "/templates/security/sign-up.phtml";
+            include $_SERVER["DOCUMENT_ROOT"] . "/templates/security/registration.phtml";
             exit();
 
         }

@@ -14,7 +14,7 @@ class UserController
             die();
         }
     }
-    public function getProfileData($params){
+    public function myProfile($params){
         //show profile
         $this->checkIfAuthenticated();
 
@@ -29,7 +29,7 @@ class UserController
             $email = $user['email'];
             $pictureProfile = $user['picture_profile'];
 
-            include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/profile.phtml";
+            include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/dashboard/my-profile.phtml";
 
         }
     }

@@ -9,7 +9,7 @@ class LoginController
 {
     public function showLoginPage()
     {
-        include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/security/sign-in.phtml";
+        include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/security/login.phtml";
     }
     public function logOut()
     {
@@ -47,7 +47,7 @@ class LoginController
             if ($user['role'] === 'ROLE_ADMIN') {
                 // Redirect admin to dashboard
                 $_SESSION['user'] = $user;
-                header("Location: /dashboard/members");
+                header("Location: /dashboard/members/list");
                 exit();
             } else {
                 // Display a specific error message for users with other roles

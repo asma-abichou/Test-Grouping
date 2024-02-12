@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/header.phtml';?>
+    <title>Edit Member</title>
+</head>
+<body class="nav-fixed">
+<?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/navbar.phtml';?>
+<div id="layoutSidenav">
+    <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/sidebar.phtml';?>
+    <div id="layoutSidenav_content">
+        <main>
+            <header class="page-header page-header-compact page-header-light border-bottom bg-white">
+                <div class="container-fluid px-4">
+                    <div class="page-header-content">
+                        <div class="row align-items-center justify-content-between pt-3">
+                            <div class="col-auto mb-3">
+                                <h1 class="page-header-title">
+                                    <div class="page-header-icon"><i data-feather="edit"></i></div>
+                                    Edit Member
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Main page content-->
+            <div class="container-fluid px-4">
+                    <div class="row gx-4">
+                        <div class="col-lg-2">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card mb-4">
+                                <div class="card-header">Prénom</div>
+                                <div class="card-body"><input class="form-control" type="text" name="prenom" placeholder="Prénom..." value="<?=$prenom?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Nom</div>
+                                <div class="card-body"><input class="form-control" type="text" name="nom" placeholder="Nom..." value="<?=$nom?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Email</div>
+                                <div class="card-body"><input class="form-control" type="email" name="email" placeholder="Email..." value="<?=$email?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Adresse</div>
+                                <div class="card-body"><input class="form-control" type="text" name="adresse" placeholder="Adresse..." value="<?=$adresse?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Code Postal</div>
+                                <div class="card-body"><input class="form-control" type="text" name="codePostal" placeholder="Code Postal..." value="<?=$codePostal?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Pays</div>
+                                <div class="card-body"><input class="form-control" type="text" name="pays" placeholder="Pays..." value="<?=$pays?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Fonction</div>
+                                <div class="card-body"><input class="form-control" type="text" name="fonction" placeholder="Fonction..." value="<?=$fonction?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Biographie</div>
+                                <div class="card-body"><input class="form-control" type="text" name="biographie" placeholder="Biographie..." value="<?=$biographie?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Type</div>
+                                <div class="card-body"><input class="form-control" type="text" name="type" placeholder="Type..." value="<?=$type?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Actif</div>
+                                <div class="card-body"><input class="form-control" type="text" name="actif" placeholder="Actif..." value="<?=$actif?>" readonly/></div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-header">Pièce justificative</div>
+                                <div class="card-body"><a href="<?= $pieceJustificative ?>" target="_blank">Télécharger</a></div>
+                            </div>
+                            <div class="text-center">
+                                <a class="fw-500 btn btn-success" href="/dashboard/members/validate?id=<?=$idMember?>">ValidateMember</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                        </div>
+                    </div>
+            </div>
+        </main>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/footer.phtml';?>
+    </div>
+</div>
+<?php include $_SERVER["DOCUMENT_ROOT"] . '/templates/layout/scripts.phtml';?>
+</body>
+</html>

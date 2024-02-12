@@ -23,19 +23,16 @@ $router->post('/register', RegistrationController::class . '::processRegistratio
 // Logout Route
 $router->get('/logout', LoginController::class . '::logout');
 
-// Dashboard Route
-//$router->get('/dashboard', DashboardController::class . '::showDashboard');
-$router->get('/dashboard/members', MemberController::class . '::showTable');
 
 // Table Members Route
-$router->get('/table', MemberController::class . '::showTable');
-$router->get('/table/editMember', MemberController::class . '::showMember');
-//edit table member
-$router->get('/table/getEditMember', MemberController::class . '::editMember');
-$router->post('/table', MemberController::class . '::validateMember');
+$router->get('/dashboard/members/list', MemberController::class . '::membersList');
+// edit member template route
+$router->get('/dashboard/members/edit', MemberController::class . '::editMemberTemplateShow');
+// validate member route
+$router->get('/dashboard/members/validate', MemberController::class . '::validateMember');
 
 //profile Route
-$router->get('/profile', UserController::class . '::getProfileData');
+$router->get('/dashboard/my-profile', UserController::class . '::myProfile');
 
 
 $router->addNotFoundHandler(function () {

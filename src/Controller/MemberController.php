@@ -16,7 +16,7 @@ class MemberController
         }
     }
 
-    public function showTable()
+    public function membersList()
     {
         //check if the user is authenticated
         $this->checkIfAuthenticated();
@@ -26,16 +26,10 @@ class MemberController
         $stmt->execute();
         $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $member = $_SESSION['membre'];
-        include_once $_SERVER["DOCUMENT_ROOT"] . '/templates/tables.phtml';
+        include_once $_SERVER["DOCUMENT_ROOT"] . '/templates/members/list.phtml';
     }
 
-    public function showMember()
-    {
-        $this->checkIfAuthenticated();
-        include_once $_SERVER["DOCUMENT_ROOT"] . '/templates/editingMember.phtml';
-    }
-
-    public function editMember($params)
+    public function editMemberTemplateShow($params)
     {
         $this->checkIfAuthenticated();
         $db = Database::getDbConnection();
@@ -62,7 +56,7 @@ class MemberController
                     $pays = $memberData['pays'];
                     $pieceJustificative = $memberData['piece_justificative'];
                     $email = $memberData['email'];
-                    include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/editingMember.phtml";
+                    include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/members/edit.phtml";
                 } else {
                     echo "Member data not found.";
                 }
@@ -77,17 +71,14 @@ class MemberController
     {
         $this->checkIfAuthenticated();
         $db = Database::getDbConnection();
-        if (isset($_POST['validateMemberBtn'])) {
+        if (isset($params['id'])) {
             // Extract form data
             $idMember = $params['id'];
             try {
-                // Check if the form is validated
-                $actifValue = isset($_POST['actif']) ? 1 : 0;
                 // Update the "actif" field in the database
                 $stmt = $db->prepare("UPDATE membre SET actif = :actif WHERE id = :idMember");
-                $stmt->execute([':actif' => $actifValue, ':idMember' => $idMember]);
-               // include_once $_SERVER["DOCUMENT_ROOT"] . "/templates/tables.phtml";
-                header("Location: /dashboard/members");
+                $stmt->execute([':actif' => 1, ':idMember' => $idMember]);
+                header("Location: /dashboard/members/list");
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }

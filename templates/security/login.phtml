@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Test-Grouping" />
+    <meta name="author" content="Test-Grouping" />
+    <link href="../../public/css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../../public/assets/img/favicon.png" />
+    <title>Login - Test-Grouping</title>
+</head>
+<body class="bg-primary">
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container-xl px-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <!-- Basic login form-->
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header justify-content-center text-center"><h3 class="fw-light my-4">Sign-In Page</h3></div>
+                            <div class="card-body">
+                                <?php
+                                //login fail massage login
+                                if (isset($_SESSION['login_fail_message'])) {
+                                    $flashMessage = $_SESSION['login_fail_message'];
+                                    unset($_SESSION['login_fail_message']);
+                                }
+                                //registration success massage
+                                if (isset($_SESSION["registration_success_message"])) {
+                                    $successMessage = $_SESSION["registration_success_message"];
+                                    unset($_SESSION["registration_success_message"]);
+                                    echo "<div id='success-message'>$successMessage</div>";
+                                }
+                                if (!empty($flashMessage)) : ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?php echo $flashMessage; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <!-- Login form-->
+                                <form action="/login" method="post">
+                                    <!-- Form Group (email address)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="email">Email Address</label>
+                                        <input class="form-control" type="email" name="email" placeholder="Enter your email address..." required/>
+                                    </div>
+                                    <!-- Form Group (password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="password">Password</label>
+                                        <input class="form-control" type="password" name="password" placeholder="Enter your password..." required/>
+                                    </div>
+                                    <!-- Form Group (login box)-->
+                                    <div class="align-items-center justify-content-between mt-4 mb-0 text-center">
+                                        <input class="btn btn-primary" type="submit" value="Login">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small"><a href="/register">Need an account? Sign up!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+        <footer class="footer-admin mt-auto footer-light">
+            <div class="container-xl px-4">
+                <div class="row">
+                    <div class="small text-center">Copyright &copy; Test-Grouping</div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+</body>
+</html>
